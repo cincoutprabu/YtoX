@@ -123,19 +123,19 @@ Scope of the recipes are shown in the ‘Recipes’ window, but modifying them i
 
 Some of the screenshots from Windows 7 on Intel(R) Ultrabook(TM) are shared here:
 
-## Choose Recipes
+### Choose Recipes
 
 ![Choose Recipes](Screenshots/1-Recipes.png)
 
-## Location Recipes Configuration
+### Location Recipes Configuration
 
 ![Location Recipes Configuration](Screenshots/2-Map.png)
 
-## Social Recipes Configuration
+### Social Recipes Configuration
 
 ![Social Recipes Configuration](Screenshots/3-Configuration.png)
 
-## Advanced Tab - Weather History
+### Advanced Tab - Weather History
 
 ![Advanced Tab - Weather History](Screenshots/4-Advanced.png)
 
