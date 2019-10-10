@@ -2,7 +2,7 @@
 
 YtoX is an award-winning idea submitted to Intel's Ultrabook App Challenge 2012. YtoX lets you control and extend the capabilities of your Ultrabook™ using interesting recipes. You can customize the recipes to do interesting things for you, to make your personal and work life easier.
 
-> This is not an actively maintained repository. This project is posted here as a backup and as a reference to my portfolio of accomplished projects.
+> This is not an actively maintained repository. This project is posted here as a backup and as a reference to my portfolio of accomplished projects. The original source submitted to the contest is posted here as is. The last known tested platform is Windows 7 running on Intel(R) Ultrabook(R) with Intel i7 processor.
 
 # What is YtoX
 
@@ -81,6 +81,43 @@ Following list of recipes are available in addition to key ones listed above.
 YtoX is a free non-commercial application. All the personal information collected by YtoX (like your location, your email-ids, passwords, your appointments & meetings, documents from My Documents folder) are used only for the execution of recipes. The personal details are never displayed publicly and/or never shared with anyone. The passwords are stored using state-of-the-art encryption techniques.
 
 YtoX remains transparent in using the news entries fetched from the RSS links of various news-providers. The emails sent by YtoX contain only the provider-name, news-URL and search-terms used to filter the news. YtoX stores only the title and URL of matched news entries. These saved entries are used only to check whether same news-alert-email was already sent to the user. These saved entries are not shared or used for any other purpose. Apart from these, use of the news alert feature of YtoX and thereby these RSS links are subject to the Terms & Conditions of respective news-providers.
+
+# Data Sources
+
+### Weather
+
+* YtoX fetches weather-information from Wunderground.
+* Use of weather-details is subject to the Terms & Conditions of Wunderground.
+
+### Location
+
+* Use of the maps feature is subject to Terms & Conditions of Bing Maps.
+* Locations of user are never shared with anyone.
+
+### Network
+
+* YtoX remains transparent in using the news entries fetched from the RSS links of various News Providers. The emails sent by YtoX contain only the provider-name, news-URL and search-terms used to filter the news.
+* YtoX stores only the title and URL of matched news entries. These saved entries are used only to check whether same news-alert-email was already sent to the user. These saved entries are not shared or used for any other purpose.
+* Apart from these, use of these RSS links is subject to the Terms & Conditions of respective news-providers.
+
+The following news-providers’ RSS links are used to fetch news-articles: 1) Microsoft Top Stories, 2) Google Technology, 3) Yahoo Technology, 4) BBC Technology.
+
+### Social
+
+* Skype needs to be installed and configured in your machine. Please choose Yes when Skype prompts you to allow access to YtoX.
+* YtoX never shares your email-ids and passwords with anybody. The passwords are stored using state-of-the-art encryption techniques.
+
+### Lifestyle
+
+* Outlook needs to be installed and configured in your machine. Appointments and Meetings information are fetched from Outlook.
+* Use of Dropbox based recipes are at your own risk. If these recipes are enabled, YtoX may automatically copy the documents from your My Documents folder to your Dropbox.
+
+### Scope of a recipe
+
+Scope of a recipe defines minimum duration between successive notifications. For example, the scope of ‘Temperature Drop’ recipe is 8 hours, which means the next temperature-drop notification will be shown only after 8 hours of first notification.
+Scope of the recipes are shown in the ‘Recipes’ window, but modifying them is not available in this version of YtoX.
+
+‘TimeSheet’ and ‘Weekly Summary’ recipe assumes you have been to work today, if you have visited your ‘Work’ location atleast once in last 8 hours. Modifying this value is not possible in this version of YtoX.
 
 # Terms of Use
 
