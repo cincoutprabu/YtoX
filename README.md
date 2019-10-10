@@ -119,6 +119,26 @@ Scope of the recipes are shown in the ‘Recipes’ window, but modifying them i
 
 ‘TimeSheet’ and ‘Weekly Summary’ recipe assumes you have been to work today, if you have visited your ‘Work’ location atleast once in last 8 hours. Modifying this value is not possible in this version of YtoX.
 
+# Screenshots
+
+Some of the screenshots from Windows 7 on Intel(R) Ultrabook(TM) are shared here:
+
+## Choose Recipes
+
+![Choose Recipes](Screenshots/1-Recipes.png)
+
+## Location Recipes Configuration
+
+![Location Recipes Configuration](Screenshots/2-Map.png)
+
+## Social Recipes Configuration
+
+![Social Recipes Configuration](Screenshots/3-Configuration.png)
+
+## Advanced Tab - Weather History
+
+![Advanced Tab - Weather History](Screenshots/4-Advanced.png)
+
 # Terms of Use
 
 Use of YtoX is at the sole risk of end users. The creators or publishers of YtoX will not be responsible for any type of side effect or damage resulted in the installation or use of YtoX.
