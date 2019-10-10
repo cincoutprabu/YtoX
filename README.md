@@ -2,7 +2,7 @@
 
 YtoX is an award-winning idea submitted to Intel's Ultrabook App Challenge 2012. YtoX lets you control and extend the capabilities of your Ultrabook™ using interesting recipes. You can customize the recipes to do interesting things for you, to make your personal and work life easier.
 
-> This is not an actively maintained repository. This project is posted here as a backup and as a reference to my portfolio of accomplished projects. The original source submitted to the contest is posted here as is. The last known tested platform is Windows 7 running on Intel(R) Ultrabook(R) with Intel i7 processor.
+> This is not an actively maintained repository. This project is posted here as a backup and as a reference to my portfolio of accomplished projects. The original source submitted to the contest is posted here as is. The last known tested platform is Windows 7 running on Intel(R) Ultrabook(TM) with Intel i7 processor.
 
 # What is YtoX
 
