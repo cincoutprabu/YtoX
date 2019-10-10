@@ -28,7 +28,7 @@ YtoX quietly installs and sits in your Ultrabook™ and does all these interesti
 
 With YtoX installed, you will get a feeling of someone intelligent residing inside your PC to make your life easier!
 
-YtoX was originally published in [Intel AppUp® center](http://www.appup.com/app-details/ytox). But since Intel have officially closed the AppUp® center, the original idea and the prototype software submitted to the contest are available [here](https://github.com/cincoutprabu/YtoX/YtoX-CodeProject.pdf).
+YtoX was originally published in [Intel AppUp® center](http://www.appup.com/app-details/ytox). But since Intel have officially closed the AppUp® center, the original idea and the prototype software submitted to the contest are available [here](Documents/YtoX-CodeProject.pdf).
 
 # More YtoX Recipes
 
