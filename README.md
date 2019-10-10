@@ -72,9 +72,9 @@ Following list of recipes are available in addition to key ones listed above.
 * Copy all my new or modified PowerPoint presentations to my Dropbox.
 * Start playback when I connect a wired headset. *
 * Show my horoscope prediction everyday at 10am. *
-* Adjust the brightness if I'm reading for more than 2 minutes. *
+* Adjust the screen brightness based on ambient light in the room. *
 
-** Marked recipes are not available in YtoX version 1.0 and 1.1
+** Marked recipes are not available yet in current version of source code posted here.
 
 # Usage Disclaimer
 
