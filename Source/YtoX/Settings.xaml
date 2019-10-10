@@ -1,0 +1,1196 @@
+﻿<UserControl x:Class="YtoX.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:extended="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+             Width="Auto"
+             Height="Auto">
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Row1 (Tabs) -->
+        <TabControl Grid.Row="0">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Engine"
+                               Width="110"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="12,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBlock Text="Recipes Execution Interval:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="EngineIntervalUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                Minimum="30"
+                                                Maximum="43200">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(seconds)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row2 -->
+                    <TextBlock Text="Engine Running?"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBlock x:Name="EngineRunningTextBox"
+                                   VerticalAlignment="Center">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row3 -->
+                    <TextBlock Text=""
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Button x:Name="EngineButton"
+                                Content="Start Engine"
+                                Width="160"
+                                Height="44"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Cursor="Hand"
+                                Click="EngineButton_Click" />
+                        <Button x:Name="RefreshButton"
+                                Content="Refresh Status"
+                                Width="160"
+                                Height="44"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Cursor="Hand"
+                                Margin="8,0,0,0"
+                                Click="RefreshButton_Click" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Weather"
+                               Width="110"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="12,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBlock Text="Weather Update Interval:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="WeatherReadIntervalUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                HorizontalAlignment="Left"
+                                                Minimum="120"
+                                                Maximum="720">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(minutes)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row2 -->
+                    <TextBlock Text="Temperature Alert Threshold:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:DoubleUpDown x:Name="TemperatureAlertThresholdUpDown"
+                                               Width="100"
+                                               Height="44"
+                                               HorizontalAlignment="Left"
+                                               Minimum="-100"
+                                               Maximum="100"
+                                               Increment="0.1">
+                        </extended:DoubleUpDown>
+
+                        <TextBlock Text="(degree Celcius)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row3 -->
+                    <!-- EmptyRow -->
+
+                    <!-- Row4 -->
+                    <TextBox Text="Note: YtoX fetches weather-information from Wunderground. Use of weather-details are subject to the Terms and Conditions of Wunderground."
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             Grid.Row="3"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"
+                             Foreground="DarkRed"
+                             BorderBrush="Transparent"
+                             Height="90"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="Bottom"
+                             Margin="0,20,0,0">
+                    </TextBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Location"
+                               Width="110"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="12,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="34" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="260" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBlock Text="Visited Distance Threshold:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:DoubleUpDown x:Name="VisitedDistanceThresholdUpDown"
+                                               Width="100"
+                                               Height="44"
+                                               Minimum="0.05"
+                                               Maximum="200"
+                                               Increment="0.05">
+                        </extended:DoubleUpDown>
+
+                        <TextBlock Text="(kilometers)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+
+                        <TextBlock x:Name="DistanceHelpText"
+                                   Text="(?)"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   ToolTip=""
+                                   Margin="8,0,0,0"
+                                   MouseDown="DistanceHelpText_MouseDown">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row2 -->
+                    <TextBlock Text="Left-From Duration Threshold:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="LeftFromDurationUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                Minimum="5"
+                                                Maximum="7200">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(minutes)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+
+                        <TextBlock x:Name="DurationHelpText"
+                                   Text="(?)"
+                                   FontSize="20"
+                                   VerticalAlignment="Center"
+                                   ToolTip=""
+                                   Margin="8,0,0,0"
+                                   MouseDown="DurationHelpText_MouseDown">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row3 -->
+                    <TextBlock Text="Car Service Interval:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="CarServiceIntervalUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                Minimum="10"
+                                                Maximum="360">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(days)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row4 -->
+                    <TextBlock Text="Maximum off-days to Gym:"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="MaxGymVacationUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                Minimum="1"
+                                                Maximum="360">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(days)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row5 -->
+                    <TextBlock Text="Known Locations"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                    </StackPanel>
+
+                    <!-- Row6 -->
+                    <TextBlock Text="Home"
+                               Grid.Row="5"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Button x:Name="HomeButton"
+                                Content="Choose from Map"
+                                Width="200"
+                                Height="44"
+                                VerticalContentAlignment="Center"
+                                Cursor="Hand"
+                                Click="HomeButton_Click">
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Row7 -->
+                    <TextBlock Text="Work"
+                               Grid.Row="6"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Button x:Name="WorkButton"
+                                Content="Choose from Map"
+                                Width="200"
+                                Height="44"
+                                VerticalContentAlignment="Center"
+                                Cursor="Hand"
+                                Click="WorkButton_Click">
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Row8 -->
+                    <TextBlock Text="Gym"
+                               Grid.Row="7"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Button x:Name="GymButton"
+                                Content="Choose from Map"
+                                Width="200"
+                                Height="44"
+                                VerticalContentAlignment="Center"
+                                Cursor="Hand"
+                                Click="GymButton_MouseDown">
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Row9 -->
+                    <TextBlock Text="Bike Showroom"
+                               Grid.Row="8"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="8"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Button x:Name="BikeShowroomButton"
+                                Content="Choose from Map"
+                                Width="200"
+                                Height="44"
+                                VerticalContentAlignment="Center"
+                                Cursor="Hand"
+                                Click="BikeShowroomButton_Click">
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Row10 -->
+                    <TextBlock Text="Car Showroom"
+                               Grid.Row="9"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="9"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Button x:Name="CarShowroomButton"
+                                Content="Choose from Map"
+                                Width="200"
+                                Height="44"
+                                VerticalContentAlignment="Center"
+                                Cursor="Hand"
+                                Click="CarShowroomButton_Click">
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Row11 -->
+                    <!-- EmptyRow -->
+
+                    <!-- Row12 -->
+                    <TextBox Text="Note: Use of the map is subject to Terms and Conditions of Bing Maps.&#10;&#10;Note: Locations of user are never shared with anyone."
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             Grid.Row="11"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"
+                             Foreground="DarkRed"
+                             BorderBrush="Transparent"
+                             Height="60"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="Bottom"
+                             Margin="0,20,0,0">
+                    </TextBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Network"
+                               Width="110"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="12,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBlock Text="Send News Alerts to:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBox x:Name="NewsEmailTextBox"
+                                 Width="300"
+                                 Height="44"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center">
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Row2 -->
+                    <TextBlock Text="News Update Interval:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="NewsReadIntervalUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                HorizontalAlignment="Left"
+                                                Minimum="120"
+                                                Maximum="1440">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(minutes)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row3 -->
+                    <TextBlock Text="Follow these topics:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBox x:Name="NewsTopicsTextBox"
+                                 Width="460"
+                                 Height="44"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center">
+                        </TextBox>
+
+                        <TextBlock Text="(eg. Windows Phone, Windows 8)"
+                                   VerticalAlignment="Center"
+                                   Foreground="Gray"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row4 -->
+                    <TextBlock Text="Follow these people:"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBox x:Name="NewsPeopleTextBox"
+                                 Width="460"
+                                 Height="44"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center">
+                        </TextBox>
+
+                        <TextBlock Text="(eg. Ballmer, Sinofsky)"
+                                   VerticalAlignment="Center"
+                                   Foreground="Gray"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row5 -->
+                    <TextBlock Text="News Providers:"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               Margin="0,6,0,0">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Vertical"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                VerticalAlignment="Top"
+                                Margin="0,6,0,0">
+                        <Grid ShowGridLines="False">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="240" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Row="0"
+                                        Grid.Column="0">
+                                <CheckBox x:Name="MSTopCheckBox"
+                                          VerticalAlignment="Center"
+                                          Margin="0,4,4,4">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="2"
+                                                        ScaleY="2" />
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                                <TextBlock Text="Microsoft Top Stories"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Button x:Name="MSTopButton"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Content="Open"
+                                    Width="80"
+                                    Height="30"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand"
+                                    Margin="8,0,0,0"
+                                    Click="MSTopButton_Click" />
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Row="1"
+                                        Grid.Column="0">
+                                <CheckBox x:Name="GoogleTechCheckBox"
+                                          VerticalAlignment="Center"
+                                          Margin="0,4,4,4">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="2"
+                                                        ScaleY="2" />
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                                <TextBlock Text="Google Technology"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Button x:Name="GoogleTechButton"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Content="Open"
+                                    Width="80"
+                                    Height="30"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand"
+                                    Margin="8,0,0,0"
+                                    Click="GoogleTechButton_Click" />
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Row="2"
+                                        Grid.Column="0">
+                                <CheckBox x:Name="YahooTechCheckBox"
+                                          VerticalAlignment="Center"
+                                          Margin="0,4,4,4">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="2"
+                                                        ScaleY="2" />
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                                <TextBlock Text="Yahoo Technology"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Button x:Name="YahooTechButton"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Content="Open"
+                                    Width="80"
+                                    Height="30"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand"
+                                    Margin="8,0,0,0"
+                                    Click="YahooTechButton_Click" />
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Row="3"
+                                        Grid.Column="0">
+                                <CheckBox x:Name="BbcTechCheckBox"
+                                          VerticalAlignment="Center"
+                                          Margin="0,4,4,4">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="2"
+                                                        ScaleY="2" />
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                                <TextBlock Text="BBC Technology"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+                            <Button x:Name="BbcTechButton"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Content="Open"
+                                    Width="80"
+                                    Height="30"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand"
+                                    Margin="8,0,0,0"
+                                    Click="BbcTechButton_Click" />
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Row6 -->
+                    <TextBox Text="Note: YtoX is a free non-commercial application. YtoX remains transparent in using the news entries fetched from the news-provider's RSS links. The emails sent by YtoX contains only the provider-name, news-URL and search-terms used to filter the news. YtoX stores only the title and URL of matched news entries. These saved entries are used only to check whether same news-alert-email was already sent to the user. These saved entries are not shared or used for any other purpose. Apart from these, use of these RSS links are subject to the Terms and Conditions of respective news-providers."
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             Grid.Row="5"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"
+                             Foreground="DarkRed"
+                             BorderBrush="Transparent"
+                             Height="120"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="Bottom"
+                             Margin="0,20,0,0">
+                    </TextBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Social"
+                               Width="110"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="12,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="240" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBlock Text="Monitor Google-talk?"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <CheckBox x:Name="GTalkCheckBox">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2"
+                                                ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                    </StackPanel>
+
+                    <!-- Row2 -->
+                    <TextBlock Text="Google-talk Email:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBox x:Name="GTalkEmailTextBox"
+                                 Width="300"
+                                 Height="44"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center">
+                        </TextBox>
+
+                        <TextBlock Text="(Never shared with anyone)"
+                                   VerticalAlignment="Center"
+                                   Foreground="Gray"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row3 -->
+                    <TextBlock Text="Google-talk Password:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <PasswordBox x:Name="GTalkPwdTextBox"
+                                     Width="300"
+                                     Height="44"
+                                     HorizontalAlignment="Left"
+                                     VerticalContentAlignment="Center">
+                        </PasswordBox>
+
+                        <TextBlock Text="(Encrypted and never shared)"
+                                   VerticalAlignment="Center"
+                                   Foreground="Gray"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row4 -->
+                    <TextBlock Text="Monitor Skype?"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <CheckBox x:Name="SkypeCheckBox">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="2"
+                                                ScaleY="2" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                    </StackPanel>
+
+                    <!-- Row5 -->
+                    <TextBlock Text="Meeting AutoReply:"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBox x:Name="MeetingAutoReplyTextBox"
+                                 Width="460"
+                                 Height="44"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center" />
+                    </StackPanel>
+
+                    <!-- Row6 -->
+                    <TextBlock Text="BatteryLow AutoReply:"
+                               Grid.Row="5"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <TextBox x:Name="BatteryLowAutoReplyTextBox"
+                                 Width="460"
+                                 Height="44"
+                                 HorizontalAlignment="Left"
+                                 VerticalContentAlignment="Center">
+                        </TextBox>
+                    </StackPanel>
+
+                    <!-- Row7 -->
+                    <TextBlock Text="Battery Warning Threshold:"
+                               Grid.Row="6"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <extended:IntegerUpDown x:Name="BatteryWarningThresholdUpDown"
+                                                Width="100"
+                                                Height="44"
+                                                HorizontalAlignment="Left"
+                                                Minimum="5"
+                                                Maximum="80">
+                        </extended:IntegerUpDown>
+
+                        <TextBlock Text="(percentage)"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0">
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!-- Row8 -->
+                    <!-- EmptyRow -->
+
+                    <!-- Row9 -->
+                    <TextBox Text="Note: Skype needs to be installed and configured in your machine. Please choose 'Yes' when Skype prompts you to allow access to YtoX.&#10;&#10;Note: YtoX never shares your email-ids and passwords with anybody. The passwords are stored using state-of-the-art encryption techniques."
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             Grid.Row="8"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"
+                             Foreground="DarkRed"
+                             BorderBrush="Transparent"
+                             Height="90"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="Bottom"
+                             Margin="0,20,0,0">
+                    </TextBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Lifestyle"
+                               Width="110"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="12,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition Height="54" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="316" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBlock Text="Alert for next Meeting around:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="MeetingAlertHourComboBox"
+                                  Width="120"
+                                  Height="44"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Margin="4" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Row2 -->
+                    <TextBlock Text="Alert for TimeSheet around:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="TimeSheetAlertHourComboBox"
+                                  Width="120"
+                                  Height="44"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Margin="4" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Row3 -->
+                    <TextBlock Text="Alert for Weekly-Summary around:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="WeeklySummaryDayOfWeekComboBox"
+                                  Width="120"
+                                  Height="44"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Margin="4" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <ComboBox x:Name="WeeklySummaryAlertHourComboBox"
+                                  Width="120"
+                                  Height="44"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  Margin="8,0,0,0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Margin="4" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Row4 -->
+                    <TextBlock Text="Launch when Shaken:"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="LaunchOnShakeComboBox"
+                                  Width="120"
+                                  Height="44"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Margin="4" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Row5 -->
+                    <TextBlock Text="Launch when Landscape Orientation:"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               VerticalAlignment="Center">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="LaunchOnLandscapeComboBox"
+                                  Width="120"
+                                  Height="44"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                                               Margin="4" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Row6 -->
+                    <TextBlock Text="Documents for Dropbox:"
+                               Grid.Row="5"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               Margin="0,6,0,0">
+                    </TextBlock>
+
+                    <StackPanel Orientation="Vertical"
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                VerticalAlignment="Top"
+                                Margin="0,6,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="WordCheckBox"
+                                      Margin="0,4,4,4">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="2"
+                                                    ScaleY="2" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <TextBlock Text="Word"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="ExcelCheckBox"
+                                      Margin="0,4,4,4">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="2"
+                                                    ScaleY="2" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <TextBlock Text="Excel"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="PowerPointCheckBox"
+                                      Margin="0,4,4,4">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="2"
+                                                    ScaleY="2" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                            <TextBlock Text="PowerPoint"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Row7 -->
+                    <TextBox Text="Note: Outlook needs to be installed and configured in your machine. Appointments and Meetings information are fetched from Outlook.&#10;&#10;Note: Use of Dropbox based recipes are at your own risk. If these recipes are enabled, YtoX may automatically copy the documents from your My Documents folder to your Dropbox."
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             Grid.Row="7"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"
+                             Foreground="DarkRed"
+                             BorderBrush="Transparent"
+                             Height="90"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="Bottom"
+                             Margin="0,20,0,0">
+                    </TextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Row2 (Control Panel) -->
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    Margin="8,8,8,0">
+            <Button x:Name="SaveButton"
+                    Content="Save Settings"
+                    Width="160"
+                    Height="44"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Cursor="Hand"
+                    Click="SaveButton_Click">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

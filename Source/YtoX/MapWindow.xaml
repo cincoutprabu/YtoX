@@ -1,0 +1,15 @@
+﻿<Window x:Class="YtoX.MapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:maps="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        Title="Choose Location"
+        Width="800"
+        Height="600">
+
+    <Grid>
+        <maps:Map x:Name="MainMap"
+                  CredentialsProvider="Ak6LhDzrzLzzvbgNxddVD-YpKRW7TYJ9bUu1Ik46C4BjzsnljM0j-7wZys0801zh"
+                  Mode="Road">
+        </maps:Map>
+    </Grid>
+</Window>

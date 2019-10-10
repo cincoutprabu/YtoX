@@ -1,0 +1,262 @@
+﻿<UserControl x:Class="YtoX.DataViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:primitive="clr-namespace:System.Windows.Controls.Primitives;assembly=PresentationFramework"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="Auto"
+             Height="Auto">
+
+    <Grid Margin="8">
+        <TabControl Grid.Row="0">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Weather History"
+                               Width="180"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="8,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row1 -->
+                    <DataGrid x:Name="WeatherHistoryGrid"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height"
+                                        Value="30" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                    </DataGrid>
+
+                    <!-- Row2 -->
+                    <Grid Grid.Row="1"
+                          Margin="8,8,8,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="WeatherSummaryTextBox"
+                                 Grid.Column="0"
+                                 Text="0 Locations"
+                                 IsReadOnly="True"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 VerticalAlignment="Center">
+                        </TextBox>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right">
+                            <Button x:Name="ClearWeatherHistoryButton"
+                                    Content="Clear History"
+                                    Width="180"
+                                    Height="50"
+                                    Cursor="Hand"
+                                    Click="ClearWeatherHistoryButton_Click">
+                            </Button>
+
+                            <Button x:Name="RefreshWeatherHistoryButton"
+                                    Content="Refresh History"
+                                    Width="180"
+                                    Height="50"
+                                    Margin="8,0,0,0"
+                                    Cursor="Hand"
+                                    Click="RefreshWeatherHistoryButton_Click">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Location History"
+                               Width="180"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="8,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row1 -->
+                    <DataGrid x:Name="LocationHistoryGrid"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height"
+                                        Value="30" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                    </DataGrid>
+
+                    <!-- Row2 -->
+                    <Grid Grid.Row="1"
+                          Margin="8,8,8,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="LocationSummaryTextBox"
+                                 Grid.Column="0"
+                                 Text="0 Locations"
+                                 IsReadOnly="True"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 VerticalAlignment="Center">
+                        </TextBox>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right">
+                            <Button x:Name="ClearLocationHistoryButton"
+                                    Content="Clear History"
+                                    Width="180"
+                                    Height="50"
+                                    Cursor="Hand"
+                                    Click="ClearLocationHistoryButton_Click">
+                            </Button>
+
+                            <Button x:Name="RefreshLocationHistoryButton"
+                                    Content="Refresh History"
+                                    Width="180"
+                                    Height="50"
+                                    Margin="8,0,0,0"
+                                    Cursor="Hand"
+                                    Click="RefreshLocationHistoryButton_Click">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="News History"
+                               Width="180"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="8,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row1 -->
+                    <DataGrid x:Name="NewsHistoryGrid"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Height"
+                                        Value="30" />
+                            </Style>
+                        </DataGrid.RowStyle>
+                    </DataGrid>
+
+                    <!-- Row2 -->
+                    <Grid Grid.Row="1"
+                          Margin="8,8,8,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="NewsSummaryTextBox"
+                                 Grid.Column="0"
+                                 Text="0 Locations"
+                                 IsReadOnly="True"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 VerticalAlignment="Center">
+                        </TextBox>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right">
+                            <Button x:Name="ClearNewsHistoryButton"
+                                    Content="Clear History"
+                                    Width="180"
+                                    Height="50"
+                                    Cursor="Hand"
+                                    Click="ClearNewsHistoryButton_Click">
+                            </Button>
+
+                            <Button x:Name="RefreshNewsHistoryButton"
+                                    Content="Refresh History"
+                                    Width="180"
+                                    Height="50"
+                                    Margin="8,0,0,0"
+                                    Cursor="Hand"
+                                    Click="RefreshNewsHistoryButton_Click">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Application Log"
+                               Width="180"
+                               Height="30"
+                               FontSize="20"
+                               Margin="4" />
+                </TabItem.Header>
+                <Grid Margin="8,12,8,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row1 -->
+                    <TextBox x:Name="LogTextBox"
+                             IsReadOnly="True"
+                             Background="LightGray"
+                             AcceptsReturn="True"
+                             HorizontalScrollBarVisibility="Auto"
+                             VerticalScrollBarVisibility="Auto">
+                    </TextBox>
+
+                    <!-- Row2 -->
+                    <Grid Grid.Row="1"
+                          Margin="8,8,8,0">
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right">
+                            <Button x:Name="ClearLogButton"
+                                    Content="Clear Log"
+                                    Width="180"
+                                    Height="50"
+                                    Cursor="Hand"
+                                    Margin="0,0,8,0"
+                                    Click="ClearLogButton_Click">
+                            </Button>
+
+                            <Button x:Name="RefreshLogButton"
+                                    Content="Refresh Log"
+                                    Width="180"
+                                    Height="50"
+                                    Cursor="Hand"
+                                    Click="RefreshLogButton_Click">
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
